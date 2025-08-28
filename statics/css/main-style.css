@@ -1,0 +1,1177 @@
+/*
+  ============================================
+  فایل استایل اصلی کلینیک پزشکی
+  ============================================
+  این فایل شامل:
+  - تنظیمات RTL برای زبان فارسی
+  - استایل‌های اصلی سایت
+  - طراحی ریسپانسیو
+  - انیمیشن‌ها و افکت‌ها
+  ============================================
+*/
+
+/* ============================================
+   تنظیمات پایه و متغیرها
+   ============================================ */
+:root {
+  /* رنگ‌های اصلی */
+  --primary-color: #0693e3;
+  --secondary-color: #00d084;
+  --accent-color: #ff6900;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  
+  /* رنگ‌های خنثی */
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --gray: #6c757d;
+  --dark-gray: #343a40;
+  --black: #000000;
+  
+  /* فونت‌ها */
+  --font-family: 'iran-sans', Tahoma, Arial, sans-serif;
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-large: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  
+  /* فاصله‌ها */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 3rem;
+  
+  /* سایه‌ها */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  
+  /* انتقال‌ها */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* ============================================
+   تنظیمات پایه
+   ============================================ */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+  direction: rtl;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--white);
+  text-align: right;
+  direction: rtl;
+}
+
+/* تنظیمات برای عناصر LTR */
+.ltr {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* ============================================
+   تایپوگرافی
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+  color: var(--dark-gray);
+}
+
+h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 900;
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: var(--font-size-large);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--primary-color);
+	text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* ============================================
+   کانتینر و گرید
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(-1 * var(--spacing-sm));
+}
+
+.col {
+  flex: 1;
+  padding: 0 var(--spacing-sm);
+}
+
+/* ============================================
+   هدر سایت
+   ============================================ */
+.site-header {
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: var(--spacing-md) 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.logo-container {
+  flex-shrink: 0;
+}
+
+.main-logo {
+  height: 50px;
+  width: auto;
+}
+
+.main-navigation {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-lg);
+    margin: 0;
+	padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  color: var(--dark-gray);
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-color);
+  background-color: var(--light-gray);
+	text-decoration: none;
+}
+
+/* ============================================
+   بخش قهرمان
+   ============================================ */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--white);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.hero-content h1 {
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.hero-content p {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.9;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.cta-button:hover {
+  background-color: #e55a00;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+  color: var(--white);
+}
+
+/* ============================================
+   بخش‌های محتوا
+   ============================================ */
+.services-section,
+.about-section,
+.team-section,
+.blog-section,
+.devices-section,
+.device-details-section,
+.blog-list-section {
+  padding: var(--spacing-xl) 0;
+}
+
+.services-section {
+  background-color: var(--light-gray);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--spacing-md);
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
+   بخش درباره ما
+   ============================================ */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.about-text h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   بخش تیم پزشکی
+   ============================================ */
+.team-section {
+  background-color: var(--light-gray);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.team-member {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+	text-align: center;
+  transition: transform var(--transition-base);
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.team-member img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  color: var(--primary-color);
+  margin: var(--spacing-md);
+}
+
+.team-member p {
+  color: var(--gray);
+  margin: 0 var(--spacing-md) var(--spacing-md);
+}
+
+/* ============================================
+   بخش مقالات
+   ============================================ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.blog-post {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base);
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.post-image img {
+	width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: var(--spacing-lg);
+}
+
+.post-content h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.read-more {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: var(--secondary-color);
+}
+
+/* ============================================
+   بخش تجهیزات
+   ============================================ */
+.filter-section {
+  background-color: var(--light-gray);
+  padding: var(--spacing-lg) 0;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.category-filter,
+.search-input {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  font-family: var(--font-family);
+}
+
+.devices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.device-card {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base);
+}
+
+.device-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.device-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: var(--spacing-md);
+}
+
+.device-content h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.device-specs {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  flex-wrap: wrap;
+}
+
+.spec {
+  background-color: var(--light-gray);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 15px;
+  font-size: var(--font-size-small);
+  color: var(--gray);
+}
+
+.view-details {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.view-details:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+/* ============================================
+   جزئیات دستگاه
+   ============================================ */
+.breadcrumb-section {
+  background-color: var(--light-gray);
+  padding: var(--spacing-md) 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.breadcrumb a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.breadcrumb .separator {
+  color: var(--gray);
+}
+
+.breadcrumb .current {
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+
+.device-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+}
+
+.device-gallery .main-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: var(--spacing-md);
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.thumbnail.active,
+.thumbnail:hover {
+  border-color: var(--primary-color);
+}
+
+.device-info h1 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.device-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.stars {
+  color: var(--warning-color);
+  font-size: var(--font-size-large);
+}
+
+.rating-text {
+  color: var(--gray);
+}
+
+.technical-specs {
+  margin: var(--spacing-lg) 0;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.spec-label {
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.spec-value {
+  color: var(--gray);
+}
+
+.device-features {
+  margin: var(--spacing-lg) 0;
+}
+
+.features-list {
+  list-style: none;
+  margin-top: var(--spacing-md);
+}
+
+.features-list li {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--light-gray);
+  position: relative;
+  padding-right: var(--spacing-lg);
+}
+
+.features-list li::before {
+  content: "✓";
+  position: absolute;
+  right: 0;
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.device-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: #0576b3;
+  color: var(--white);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #00b377;
+  color: var(--white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* ============================================
+   تب‌ها
+   ============================================ */
+.description-tabs {
+  margin-top: var(--spacing-xl);
+}
+
+.tab-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.tab-btn {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--gray);
+  border-bottom: 3px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+  min-height: 300px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+	display: block;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+}
+
+.specs-table td {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.specs-table td:first-child {
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.application-item {
+  background-color: var(--light-gray);
+  padding: var(--spacing-lg);
+  border-radius: 10px;
+}
+
+.application-item h4 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
+   لیست مقالات
+   ============================================ */
+.blog-list {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.blog-item {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--spacing-lg);
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base);
+}
+
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.category {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 15px;
+  font-size: var(--font-size-small);
+}
+
+.date,
+.author {
+  color: var(--gray);
+  font-size: var(--font-size-small);
+}
+
+.blog-content h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.blog-content h2 a {
+  color: var(--dark-gray);
+  text-decoration: none;
+}
+
+.blog-content h2 a:hover {
+  color: var(--primary-color);
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--light-gray);
+}
+
+.blog-stats {
+  display: flex;
+  gap: var(--spacing-md);
+  color: var(--gray);
+  font-size: var(--font-size-small);
+}
+
+/* ============================================
+   سایدبار
+   ============================================ */
+.sidebar {
+  margin-top: var(--spacing-lg);
+}
+
+.widget {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.widget h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--light-gray);
+  padding-bottom: var(--spacing-sm);
+}
+
+.category-list {
+  list-style: none;
+}
+
+.category-list li {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.category-list a {
+  color: var(--dark-gray);
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-list a:hover {
+  color: var(--primary-color);
+}
+
+.count {
+  background-color: var(--light-gray);
+  color: var(--gray);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 10px;
+  font-size: var(--font-size-small);
+}
+
+.popular-posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.popular-post {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.popular-post img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.post-info h4 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.post-info h4 a {
+  color: var(--dark-gray);
+	text-decoration: none;
+  font-size: var(--font-size-small);
+}
+
+.post-info h4 a:hover {
+  color: var(--primary-color);
+}
+
+.post-info .date {
+  color: var(--gray);
+  font-size: var(--font-size-small);
+}
+
+/* ============================================
+   صفحه‌بندی
+   ============================================ */
+.pagination-section {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.page-link {
+	display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--white);
+  color: var(--dark-gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+	text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.page-link:hover,
+.page-link.active {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+/* ============================================
+   فوتر
+   ============================================ */
+.site-footer {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.footer-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.footer-info p {
+  color: var(--gray);
+  margin: 0;
+}
+
+/* ============================================
+   ریسپانسیو
+   ============================================ */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .device-details {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .blog-item {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-image {
+    height: 200px;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .device-actions {
+    flex-direction: column;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .services-grid,
+  .team-grid,
+  .blog-grid,
+  .devices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-buttons {
+    flex-direction: column;
+  }
+
+  .blog-footer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+  }
+}
+
+/* ============================================
+   انیمیشن‌ها
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* ============================================
+   حالت‌های مختلف
+   ============================================ */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+
+.p-0 { padding: 0; }
+.p-1 { padding: var(--spacing-sm); }
+.p-2 { padding: var(--spacing-md); }
+.p-3 { padding: var(--spacing-lg); }
+.p-4 { padding: var(--spacing-xl); }

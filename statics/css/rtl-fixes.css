@@ -1,0 +1,75 @@
+/* RTL Fixes for Persian Text */
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'iran-sans', Arial, sans-serif !important;
+}
+
+/* Fix menu alignment */
+.mkdf-main-menu > ul > li > a {
+  text-align: right;
+}
+
+/* Fix form inputs */
+input, textarea, select {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Fix breadcrumbs */
+.mkdf-breadcrumbs {
+  direction: rtl;
+}
+
+.mkdf-breadcrumbs .mkdf-delimiter {
+  margin: 0 10px;
+}
+
+/* Fix slider text alignment */
+.rs-layer {
+  text-align: right !important;
+}
+
+/* Fix icon positioning */
+.mkdf-icon-box .mkdf-icon-box-icon {
+  float: right;
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+/* Fix list items */
+ul, ol {
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+/* Fix blockquotes */
+blockquote {
+  border-right: 4px solid #ccc;
+  border-left: none;
+  padding-right: 15px;
+  padding-left: 0;
+}
+
+/* Fix buttons */
+.mkdf-btn {
+  text-align: center;
+}
+
+/* Fix search form */
+.mkdf-search-cover input {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Fix mobile menu */
+.mkdf-mobile-menu {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Fix footer */
+.mkdf-footer {
+  direction: rtl;
+  text-align: right;
+}
